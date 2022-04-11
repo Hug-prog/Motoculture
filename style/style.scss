@@ -1,0 +1,662 @@
+@import 'method/function';
+@import 'method/colors';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.home{
+    @extend %w-h_100;
+    background: url(../img/bg_home.jpg) no-repeat center/cover;
+    background-attachment: fixed;
+    
+    @include responsive(tablet){
+        @include w_h(100%,80vh);
+    }
+
+    &_navbar{
+        color: $white;
+        position: fixed;
+        @include w_h(100%,15vh);
+
+        @include responsive(tablet){
+            @include w_h(100%,9vh);
+        }
+
+        @include responsive(phone){
+            display: none;
+        }
+
+        nav{
+            @extend %display_flex_around;
+            margin-top: 1%;
+            ul{
+                display: flex;
+                @extend %display_flex_around;
+                @include w_h(30%,auto);
+                li{
+                    list-style: none;
+                    a{
+                        font-size: 20px;
+                        @include responsive(tablet){
+                            font-size: 17px;
+                        }
+                        color: $white;
+                        text-decoration: none;
+                    }
+                    &:hover{
+                        border-bottom: 1px solid $white;
+                    }
+                }
+            }
+
+            img{
+                @include w_h(10%,10vh);
+                @include responsive(tablet){
+                    @include w_h(10%,7vh);
+                }
+            }
+
+        }
+
+    }
+
+    &_content{
+        @include w_h(100%,100vh);
+        @extend %display_flex_center;
+
+        @include responsive(tablet){
+            @include w_h(100%,80vh);
+        }
+
+        &_box{
+            text-align: center;
+            i{
+                font-size: 45px;
+                color: $grenn;
+            }
+            h1{
+                margin-top: 7%;
+                margin-bottom: 10%;
+                font-size: 70px;
+                color: $white;
+                @include responsive(phone){
+                    font-size: 25px;
+                }
+            }
+            a{
+                @extend %link;
+                &:hover{
+                    border: 4px solid $grenn;
+                    filter: blur();
+                }
+            }
+        }
+
+
+    }
+
+}
+
+
+.news{
+    @include w_h(100%,100vh);
+    @extend %display_flex_center;
+
+    @include responsive(tablet){
+        @include w_h(100%,70vh);
+        margin-top: 5%;
+    }
+
+    &_content{
+        @include w_h(90%,80vh);
+        @extend %display_flex_around;
+        margin: auto;
+        background: $bgwhite;
+
+        @include responsive(other){
+            display: block;
+            text-align: center;
+        }
+
+        @include responsive(tablet){
+            display: block;
+            @include w_h(90%,auto);
+            text-align: center;
+        }
+
+        @include responsive(phone){
+            padding-bottom: 10%;
+        }
+    
+        &_titlerotate{
+            width: 30%;
+            transform: rotate(270deg);
+            color: $grenn;
+
+            @include responsive(phone){
+                display: none;
+            }
+
+            @include responsive(tablet){
+                display: none;
+            }
+
+            @include responsive(other){
+                display: none;
+            }
+
+        }
+        
+        img{
+            width: 70%;
+
+            @include responsive(other){
+                width: 40%;
+                margin-top: 5%;
+            }
+
+            @include responsive(tablet){
+                margin-top: 5%;
+                width: 40%;
+            }
+
+            @include responsive(phone){
+                margin-top: 5%;
+            }
+
+        }
+
+        &_boxtext{
+            @include w_h(50%,auto);
+            margin: 0% 5%;
+
+            @include responsive(other){
+                margin: auto;
+            }
+
+            @include responsive(tablet){
+                margin: 5% auto;
+                
+            }
+
+            h3{
+                color: $grenn;
+
+                @include responsive(other){
+                    margin-top: 2%;
+                }
+
+            }
+            h1{
+                margin-top: 5%;
+                font-size: 30px;
+                @include responsive(phone){
+                    font-size: 20px;
+                }
+            }
+            &_bar{
+                content: '';
+                margin-top: 7%;
+                @include w_h(30%,1vh);
+                background: $grenn;
+                
+                @include responsive(tablet){
+                    margin: 5% auto;
+                }
+
+                @include responsive(other){
+                    margin: 3% auto;
+                }
+
+            }
+            p{
+                margin-top: 7%;
+                margin-bottom: 7%;
+
+                @include responsive(tablet){
+                    font-size: 13px;
+                }
+
+            }
+        }
+        
+    }
+
+}
+
+.shop{
+    @include w_h(100%,100vh);
+
+    @include responsive(tablet){
+        @include w_h(100%,70vh);
+    }
+
+    &_banner{
+        @include w_h(90%,30vh);
+        margin: auto;
+        text-align: center;
+
+        @include responsive(tablet){
+            @include w_h(100%,30vh);
+        }
+
+        h2{
+            color: $grenn;
+            margin-top: 7%;
+        }
+
+        h1{
+            font-size: 40px;
+            margin-top: 4%;
+        }
+
+        ul{
+            margin-top: 5%;
+            @extend %display_flex_around;
+
+            @include responsive(phone){
+                flex-wrap: wrap;
+            }
+
+            li{
+                list-style-type: none;
+                
+                @extend %link; 
+
+                @include responsive(tablet){
+                    font-size: 13px;
+                }
+
+                @include responsive(phone){
+                    font-size: 9px;
+                    padding: 5px 5px;
+                    margin-top: 2%;
+                }
+
+                &:hover{
+                    box-shadow: 0px 4px 8px $grenn;
+                }
+                
+                cursor: pointer;
+
+            }
+        }
+    }
+
+    &_content{
+        @include w_h(100%,100vh);
+        position: relative;
+        z-index: -1;
+
+        @include responsive(tablet){
+            @include w_h(100%,70vh);
+            top: 15%;
+        }
+
+        &_box1{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            justify-content: space-around;
+            @include w_h(70%,80vh);
+            margin: auto;
+
+            &_box{
+                @extend %box_img;
+                
+                @include responsive(other){
+                    @include w_h(25%,40vh);
+                }
+
+                @include responsive(tablet){
+                    @include w_h(30%,40vh);
+                }
+
+                @include responsive(phone){
+                    @include w_h(45%,30vh);
+                    margin-left: 10%;
+                }
+
+                h2{
+                    @include responsive(phone){
+                        font-size: 15px;
+                    }
+                }
+
+                img{
+                    @include responsive(phone){
+                        border-radius: 20px;
+                    }
+                }
+
+                p{
+                    @include responsive(phone){
+                        font-size: 13px;
+                    }
+                }
+
+                a{
+                    @extend %link-shop;
+
+                    @include responsive(phone){
+                        font-size: 15px;
+                    }
+
+                }
+            }
+        }
+
+        &_box2,
+        &_box3,
+        &_box4,
+        &_box5,
+        &_box6{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            justify-content: space-around;
+            @include w_h(70%,80vh);
+            margin: auto;
+            &_box{
+                @extend %box_img;
+
+                @include responsive(other){
+                    @include w_h(25%,40vh);
+                }
+
+                @include responsive(tablet){
+                    @include w_h(30%,40vh);
+                }
+
+                @include responsive(phone){
+                    @include w_h(45%,30vh);
+                    margin-left: 10%;
+                }
+                
+                h2{
+                    @include responsive(phone){
+                        font-size: 15px;
+                    }
+                }
+
+                img{
+                    @include responsive(phone){
+                        border-radius: 20px;
+                    }
+                }
+
+                p{
+                    @include responsive(phone){
+                        font-size: 13px;
+                    }
+                }
+                a{
+                    @extend %link-shop;
+                    
+                    @include responsive(phone){
+                        font-size: 15px;
+                    }
+
+                }
+            }
+            display: none;
+
+        }
+
+
+    }
+
+
+}
+
+
+.aboutUs{
+    @include w_h(100%,70vh);
+    @extend %display_flex_around;
+
+    &_arrowLeft,
+    &_arrowRight{
+        @include w_h(15%,auto);
+        text-align: center;
+        i{
+            font-size: 40px;
+            cursor: pointer;
+        }
+    }
+
+    &_content{
+        position: relative;
+        @include w_h(75%,70vh);
+        z-index: -1;
+
+        &_box{
+            @include w_h(70%,70vh);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            @extend %display_flex_center;
+            text-align: center;
+            &_sbox{
+                @extend %aboutbox;
+                img{
+                    @include responsive(tablet){
+                       width: 20%;
+                    }
+                }
+            }
+
+            display: none;
+            
+            &_visible{
+                display: flex;
+                animation:  animateCarousel 1s;
+            }
+    
+        }
+    }
+}
+
+@keyframes animateCarousel{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: opacity linear;
+    }
+}
+
+.form{
+    @include w_h(100%,110vh);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    @include responsive(phone){
+        @include w_h(100%,90vh);
+    }
+    
+    &_elCenter{
+        @include w_h(100%,auto);
+    }
+    
+    img{
+        margin-bottom: 5%;
+        border-radius: 50px;
+    }
+
+    &_bg{
+        @include w_h(100%,60vh);
+        background: url(../img/img_trac.jpg) no-repeat center/cover;
+
+        h1{
+            position: relative;
+            top: 20%;
+            color: $white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+    }
+
+    &_box{
+        @include w_h(60%,50vh);
+        background: $white;
+        margin: -20% auto;
+        border-radius: 20px;
+
+        @include responsive(other){
+            margin: -30% auto;
+        }
+
+        @include responsive(tablet){
+            @include w_h(60%,45vh);
+        }
+
+        @include responsive(phone){
+            margin: -90% auto;
+        }
+
+        form{
+            @include w_h(100%,70vh);
+        }
+
+        input{
+            border: unset;
+            background: unset;
+            border-bottom: 1px solid $grenn;
+            opacity: 0.7;
+            font-size: 17px;
+            &:hover{
+                border: unset;
+            }
+
+            @include responsive(tablet){
+                margin-top: 5%;
+            }
+
+            @include responsive(phone){
+                @include w_h(90%,auto);
+            }
+        
+        }
+
+        &_name,
+        &_email{
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 10%;
+            @extend %display_flex_around;
+
+            @include responsive(tablet){
+                display: block;
+            }
+
+            @include responsive(other){
+                margin-top: 15%;
+            }
+
+            @include responsive(phone){
+                margin-top: 30%;
+            }
+
+        }
+
+        &_name{
+            position: relative;
+            top: 10%;
+        }
+
+        &_message{
+            margin-top: 5%;
+        }
+        a{
+            position: relative;
+            top: 10%;
+            @extend %link-shop;
+        }
+    }
+
+}
+
+.footer{
+    @include w_h(100%,40vh);
+    background: $grenn;
+
+    img,
+    h2,
+    p{
+       margin-top: 2%;
+       margin-left: 2%;
+       @include responsive(phone){
+           @include w_h(90%,auto)
+       }
+    }
+
+    img{
+        width: 10%;
+        margin-bottom: 2%;
+        
+        @include responsive(phone){
+            width: 45%;
+        }
+    }
+
+    &_banner{
+        @extend %display_flex_center;
+
+        @include responsive(phone){
+            display: block;
+        }
+
+        p{
+            width: 30%;
+            margin:0px 3%;
+
+            @include responsive(phone){
+                width: 100%;
+            }
+
+        }
+
+        &_link{
+            width: 50%;
+
+            @include responsive(phone){
+                width: 100%;
+                margin-top: 10%; 
+            }
+
+            ul{
+                @extend %display_flex_around;
+                li{
+                    margin-left: 3%;
+                    list-style-type: none;
+                    a{
+                        text-decoration: none;
+                        color: $black;
+                        padding-bottom: 5px;
+                        border-bottom: 2px solid $white;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
